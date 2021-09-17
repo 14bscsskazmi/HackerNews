@@ -5,9 +5,6 @@ Follow the instructions for "React Native CLI Quickstart" in the [React Native d
 Follow the installation [instructions](https://github.com/nvm-sh/nvm).
 ## VS Code and development environment setup
 1. Install VS Code
-    1. Install the following plugins: `dbaeumer.vscode-eslint`, `davidanson.vscode-markdownlint`
-    2. Open the settings JSON file by pressing Shift+CMD+P and entering `Preferences: Open Settings (JSON)`
-    3. Add the lines shown below
 2. Clone the repo https://github.com/14bscsskazmi/HackerNews
 3. Go to the root of the repository
 4. Run `nvm use` (you might need to install our specific Node.js version) and create .nvmrc file and save your current version there. So that everyone is on the same node version
