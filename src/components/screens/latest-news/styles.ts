@@ -21,7 +21,12 @@ const styles = StyleSheet.create({
   },
   title_text: {
     fontWeight: 'normal',
-    width: SCREEN_WIDTH * 0.85,
-  }
+    width: SCREEN_WIDTH * 0.83,
+  },
+  latest_stories_text: {
+    color: COLORS.black,
+    marginLeft: SCREEN_WIDTH * 0.05,
+    marginBottom: 20,
+  },
 });
 export default styles;

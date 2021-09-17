@@ -11,6 +11,7 @@ import styles from './styles';
 import { BASE_URL, COLORS, SCREEN_WIDTH } from '../../../global/constants';
 import { getRequest } from '../../../network';
 import DividerContainer from '../../../global/divider';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const rightArrow = require('../../../assets/icons/right-icon.png');
 
@@ -22,23 +23,28 @@ const LatestNewsContainer: FunctionComponent<Props> = (props) => {
   const [latestNews, setLatestNews] = useState<any>([]);
 
   useEffect(() => {
-   console.log('HERE: ', latestNews.length);
-   setLatestNews(getLatestNews(props.latestNewsIds, setLatestNews, latestNews));
+   // console.log('HERE: ', latestNews.length);
+   setLatestNews(getLatestNews(props.latestNewsIds, setLatestNews));
   },[]);
   // useEffect(() => {
   //   console.log('News.......: ', latestNews);
-  //  },[latestNews.length === 5]);
+  //  },[latestNews.length === 10]);
 
   return (
     <View style={[globalStyles.center, globalStyles.flex_1, styles.main_container]}>
+      <ScrollView
+        contentContainerStyle={{
+          flexGrow: 1,
+        }}
+      >
       {
-        latestNews.length !== 5 ?
+        latestNews.length !== 12 ?
           <View style={[globalStyles.center, {flex: 1}]}>
             <ActivityIndicator  size="large" color="#000000"/>
           </View>
         :
         <View>
-          <Text style={[globalStyles.h2, {color: COLORS.black}]}>Latest stories</Text>
+          <Text style={[globalStyles.h2, styles.latest_stories_text]}>Latest stories</Text>
 
           {
           latestNews.map((currentNews: any, index: number) => {
@@ -46,6 +52,9 @@ const LatestNewsContainer: FunctionComponent<Props> = (props) => {
               <TouchableOpacity
                 onPress={()=>{
                   Linking.openURL(currentNews.url);
+                }}
+                style={{
+                  marginBottom:  index === latestNews.length - 1 ? 40 : null,
                 }}
               >
                 <View style={[styles.latest_story_title_card]}>
@@ -64,7 +73,7 @@ const LatestNewsContainer: FunctionComponent<Props> = (props) => {
           }
         </View>
       }
-      
+      </ScrollView>
     </View>
   );
 };

@@ -1,11 +1,11 @@
 import { BASE_URL } from "../global/constants";
 import { getRequest } from "../network";
 
-export async function getLatestNews(newsIds, setLatestNews, latestNews) {
+export async function getLatestNews(newsIds, setLatestNews) {
   let newsData=[];
   for (let newsId of newsIds){
-    console.log(newsId);
-    if(newsData.length === 5)
+    // console.log(newsId);
+    if(newsData.length === 12)
     {
       break;
     }
@@ -21,9 +21,6 @@ export async function getLatestNews(newsIds, setLatestNews, latestNews) {
      });
   }
   // console.log(newsData);
-  setLatestNews([
-    ...newsData,
-    ...latestNews,
-  ]);
+  setLatestNews(newsData);
   return newsData;
 }
